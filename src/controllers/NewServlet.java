@@ -32,14 +32,13 @@ public class NewServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // CSRF対策
         request.setAttribute("_token", request.getSession().getId());
-        System.out.println("★ DEBUG1 ★");
+
         // おまじないとしてのインスタンスを生成
         request.setAttribute("tasks", new Tasks());
-        System.out.println("★ DEBUG2 ★");
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/new.jsp");
         rd.forward(request, response);
-        System.out.println("★ DEBUG3 ★");
+
      }
 
 }
